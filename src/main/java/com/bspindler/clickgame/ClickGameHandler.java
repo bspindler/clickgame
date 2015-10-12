@@ -67,7 +67,7 @@ public class ClickGameHandler {
 			click.setId(id);
 			
 			// build up the data
-			Map<String, Object> data = new HashMap<String, Object>();
+			Map<String, Object> data = (null == click.getData()) ? new HashMap<String, Object>() : click.getData();
 			if(context!=null) {
 				data.put("awsRequestId", context.getAwsRequestId());
 			}
