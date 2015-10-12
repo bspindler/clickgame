@@ -1,23 +1,15 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'application'
 
-mainClassName = 'com.bspindler.clickgame.ClickGameHandler'
-
-// tag::repositories[]
 repositories { 
     mavenCentral() 
 }
-// end::repositories[]
 
-// tag::jar[]
 jar {
     baseName = 'bspindler-clickgame'
     version =  '0.1.0'
 }
-// end::jar[]
 
-// tag::fatJar
 //create a single Jar with all dependencies
 task fatJar(type: Jar) {
 	manifest {
@@ -29,9 +21,7 @@ task fatJar(type: Jar) {
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
-// end::fatJar
 
-// tag::dependencies[]
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -40,10 +30,7 @@ dependencies {
     compile 'com.amazonaws:aws-lambda-java-core:1.0.0'
     compile 'com.amazonaws:aws-java-sdk-s3:1.10.26'
 }
-// end::dependencies[]
 
-// tag::wrapper[]
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
-// end::wrapper[]

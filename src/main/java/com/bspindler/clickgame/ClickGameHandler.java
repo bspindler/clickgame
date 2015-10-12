@@ -110,8 +110,4 @@ public class ClickGameHandler {
 		return new Response(objectMapper.writeValueAsString(putObjectResult));
 	}
 
-	public static void main(String[] args) throws IOException {
-		// no-op atm
-	}
-
 }
